@@ -4,7 +4,14 @@ import '../styles/repositories.scss'
 
 
 export function RepositoryList() {
- const [repositories, setRepositories ] = useState([])
+
+  interface Repository {
+    name: string
+    description: string
+    html_url: string
+  }
+
+ const [repositories, setRepositories ] = useState<Repository[]>([])
 
  useEffect(() => {
   fetch('https://api.github.com/users/dancosta-fed/repos')
